@@ -17,13 +17,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>10</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>App Needs Camera Access</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>App Needs Microphone Access</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>

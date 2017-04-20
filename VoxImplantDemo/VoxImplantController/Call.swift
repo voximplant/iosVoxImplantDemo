@@ -16,10 +16,13 @@ protocol CallDelegate: class {
     func callFailedWithError(code:Int32, reason:String)
 }
 
+
 class Call: NSObject {
     weak var delegate:CallDelegate?
     var callId:String?
     var callUUID:UUID?
+    var sendVideoEnabled = true
+    var callStopHandler: (() -> Void)!
     
     init(delegate:CallDelegate) {
         self.delegate = delegate
@@ -30,6 +33,7 @@ class Call: NSObject {
     }
  
     func startCallTo(user:String, video:Bool) -> String {
+        self.sendVideoEnabled = video
         callId = vox.sdk.createCall(user, withVideo: video, andCustomData: "VoxImplantDemo custom call data")
         vox.sdk.startCall(callId, withHeaders: nil)
 
@@ -49,10 +53,12 @@ class Call: NSObject {
         if let uuid = callUUID {
             vox.provider.reportCall(with: uuid, endedAt: Date(), reason: .answeredElsewhere)
         }
+        //self.callStopHandler()
     }
     
     func onIncomingCall(caller from: String!, named displayName: String!, withVideo videoCall: Bool, withHeaders headers: [AnyHashable : Any]!) {
         Log.debug("[Call:\(callId!)] onIncomingCall from = \(from) displayNam= \(displayName) videoCall = \(videoCall)")
+        self.sendVideoEnabled = true
     }
     
     func onCallRingin(withHeaders headers: [AnyHashable : Any]!) {
@@ -71,10 +77,11 @@ class Call: NSObject {
     func onCallDisconnected(withHeaders headers: [AnyHashable : Any]!) {
         Log.debug("[Call:\(callId!)]  onCallDisconnected  headers = \(headers)")
         self.delegate?.callDidDisconnect()
+        vox.cleanIncomingCall(callId: callId!)
     }
     
     func onCallFailed(withCode code: Int32, andReason reason: String!, withHeaders headers: [AnyHashable : Any]!) {
-        Log.debug("onCallFailed callId = \(callId!)  code = \(code) reason=\(reason) headers = \(headers)")
+        Log.debug("[Call:\(callId!)]  onCallFailed code = \(code) reason=\(reason) headers = \(headers)")
         self.delegate?.callFailedWithError(code: code, reason: reason)
     }
     
@@ -84,6 +91,14 @@ class Call: NSObject {
     
     func setRemotePreview(view:UIView) {
         vox.sdk.setRemoteView(view)
+    }
+    
+    func sendMessage(message:String) {
+        vox.sdk.sendMessage(callId, withText: message, andHeaders: ["X-my-header":"custom header"])
+    }
+    
+    func sendMessage(message:String, mimeType:String) {
+        vox.sdk.sendInfo(callId, withType: mimeType, content: message, andHeaders: ["X-my-header":"custom header"])
     }
     
     var capturePosition = AVCaptureDevicePosition.front
@@ -108,5 +123,14 @@ class Call: NSObject {
     
     func muteVideo(mute:Bool) {
         vox.sdk.sendVideo(!mute)
+        self.sendVideoEnabled = !mute
+    }
+    
+    func duration() -> TimeInterval {
+        return vox.sdk.getCallDuration(self.callId)
+    }
+    
+    func setHold (hold:Bool) {
+        vox.sdk.setHold(hold, forCall: self.callId)
     }
 }

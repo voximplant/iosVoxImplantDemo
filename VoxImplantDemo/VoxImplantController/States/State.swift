@@ -21,7 +21,7 @@ class State {
     func willExitTo(state:State){
     }
     
-    func login(userName:String, password:String) {
+    func login(userName:String, password:String,gateway: String?) {
         Log.error("[\(self)] > called login in incorrect state")
     }
 
@@ -56,8 +56,10 @@ class State {
     }
     
     func onLoginFailedWithErrorCode(_ errorCode: NSNumber!) {
-        Log.debug("[\(self)] UNHANDLED  onLoginFailedWithErrorCode \(errorCode)")
-        
+        Log.debug("[\(self)] onLoginFailedWithErrorCode \(errorCode)")
+        Notify.post(name: Notify.loginFailed, userInfo:  ["reason":errorCode])
+        self.vic.sdk.closeConnection()
+        self.vic.goto(state: self.vic.sDisconnected)
     }
     
 }

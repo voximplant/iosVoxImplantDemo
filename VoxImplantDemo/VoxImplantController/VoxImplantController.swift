@@ -42,6 +42,9 @@ class VoxImplantController: NSObject {
     var userName:String?
     var password:String?
     
+    var isDisconnected:Bool{get {return self.state === self.sDisconnected }}
+    
+    
     private init(sdk: VoxImplant) {
         
         provider = CXProvider(configuration: type(of: self).providerConfiguration)
@@ -61,12 +64,25 @@ class VoxImplantController: NSObject {
         
         self.sdk.voxDelegate = self
         
+    //    self.sdk.setResolution(1280, andHeight: 720)
+        
         self.registerForPushNotifications()
     }
     
     class func instance() -> VoxImplantController {
-        VoxImplant.setLogLevel(ERROR_LOG_LEVEL)
+        VoxImplant.setLogLevel(INFO_LOG_LEVEL)
         return VoxImplantController(sdk: VoxImplant.getInstance())
+    }
+    
+    func switchVideoResizeMode() {
+        let mode = self.sdk.getVideoResizeMode()
+        switch mode {
+            case VI_VIDEO_RESIZE_MODE_CLIP: self.sdk.setVideoResizeMode(VI_VIDEO_RESIZE_MODE_FIT); break;
+            case VI_VIDEO_RESIZE_MODE_FIT:  self.sdk.setVideoResizeMode(VI_VIDEO_RESIZE_MODE_CLIP); break;
+        default:
+            assert(false);
+            break;
+        };
     }
 
 }
@@ -81,8 +97,8 @@ extension VoxImplantController {
         self.state.didEnterFrom(state: prevState)
     }
     
-    func login(userName:String, password:String) {
-        self.state.login(userName: userName, password: password)
+    func login(userName:String, password:String, gateway: String?) {
+        self.state.login(userName: userName, password: password, gateway:gateway)
     }
 
     func disconnect(){
@@ -93,6 +109,10 @@ extension VoxImplantController {
         let call = Call(delegate: callDelegate)
         let callId = call.startCallTo(user: user, video:video)
         calls[callId] = call
+        call.callStopHandler = {
+            self.calls.removeValue(forKey: callId)
+        }
+        
         return call
     }
     
@@ -100,6 +120,9 @@ extension VoxImplantController {
         let call = Call(delegate: callDelegate)
         call.acceptCall(callid: callId, uuid: uuid, video:video)
         calls[callId] = call
+        call.callStopHandler = {
+            self.calls.removeValue(forKey: callId)
+        }
         return call
     }
 

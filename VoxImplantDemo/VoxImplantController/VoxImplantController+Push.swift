@@ -35,8 +35,17 @@ extension VoxImplantController: PKPushRegistryDelegate {
         self.sdk.registerPushNotificationsToken(credentials.token)
     }
     
+    static func appState() -> String {
+        switch UIApplication.shared.applicationState {
+        case .active:       return "active"
+        case .inactive:     return "inactive"
+        case .background:   return "background"
+        }
+    }
+    
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, forType type: PKPushType) {
-        Log.debug("didReceiveIncomingPushWith = \(payload) type = \(type)")
+        Log.debug("[\(VoxImplantController.appState())] === didReceiveIncomingPushWith = \(payload) type = \(type)")
+        
         
         let aps = payload.dictionaryPayload["aps"] as! Dictionary<AnyHashable,Any>
         if aps["voximplant"] != nil {

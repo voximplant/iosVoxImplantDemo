@@ -12,9 +12,14 @@ import UIKit
 class PhoneController: UIViewController {
     
     @IBOutlet weak var destUser: UITextField!
+    @IBOutlet weak var videoCallButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (noVideo) {
+            self.videoCallButton.isHidden = true
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(disconnected), name: Notify.disconnected, object: nil)
         
@@ -50,6 +55,13 @@ class PhoneController: UIViewController {
     func disconnected(){
         Log.debug("disconnected")
         self.navigationController!.popViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if vox.isDisconnected {
+            self.navigationController!.popToRootViewController(animated: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {

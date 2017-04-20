@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1044847F1E5717EC0095225F /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 1044847E1E5717EC0095225F /* Readme.md */; };
+		1079D6351E5C214400CB9819 /* ConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079D6341E5C214400CB9819 /* ConnectTests.swift */; };
+		1079D63D1E5C27C200CB9819 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079D63C1E5C27C200CB9819 /* LoginTests.swift */; };
+		1079D63F1E5C284800CB9819 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079D63E1E5C284800CB9819 /* BaseTests.swift */; };
 		10AC7B9A1E4882600061C073 /* LoggingIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC7B931E4882600061C073 /* LoggingIn.swift */; };
 		10AC7B9B1E4882600061C073 /* Connecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC7B941E4882600061C073 /* Connecting.swift */; };
 		10AC7B9C1E4882600061C073 /* Disconnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10AC7B951E4882600061C073 /* Disconnected.swift */; };
@@ -27,11 +29,28 @@
 		10C430691E3B546800D68082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C430681E3B546800D68082 /* Assets.xcassets */; };
 		10C4306C1E3B546800D68082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C4306A1E3B546800D68082 /* LaunchScreen.storyboard */; };
 		10D2C2931E56EB1B0011F880 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C2921E56EB1B0011F880 /* Log.swift */; };
-		F282CD34A98579D1CDD54E0B /* Pods_VoxImplantDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50568025B08EA211185549C7 /* Pods_VoxImplantDemo.framework */; };
+		389EC194B49BA998AF2B6FFE /* Pods_VoxImplantDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE3C3F6BF90AE7D084DFA8B /* Pods_VoxImplantDemo.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1079D6371E5C214400CB9819 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10C430561E3B546800D68082 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10C4305D1E3B546800D68082;
+			remoteInfo = VoxImplantDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0BE3C3F6BF90AE7D084DFA8B /* Pods_VoxImplantDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoxImplantDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1044847E1E5717EC0095225F /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		1079D6321E5C214400CB9819 /* VoxImplantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoxImplantTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1079D6341E5C214400CB9819 /* ConnectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectTests.swift; sourceTree = "<group>"; };
+		1079D6361E5C214400CB9819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1079D63C1E5C27C200CB9819 /* LoginTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		1079D63E1E5C284800CB9819 /* BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
+		1079D6401E5C407100CB9819 /* VoxImplantTests-BrigingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VoxImplantTests-BrigingHeader.h"; sourceTree = "<group>"; };
 		10AC7B931E4882600061C073 /* LoggingIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingIn.swift; sourceTree = "<group>"; };
 		10AC7B941E4882600061C073 /* Connecting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connecting.swift; sourceTree = "<group>"; };
 		10AC7B951E4882600061C073 /* Disconnected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disconnected.swift; sourceTree = "<group>"; };
@@ -54,23 +73,42 @@
 		10C4306D1E3B546800D68082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C430891E3F5AE600D68082 /* VoxImplantDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VoxImplantDemo.entitlements; sourceTree = "<group>"; };
 		10D2C2921E56EB1B0011F880 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		19747336C47358ED74323381 /* Pods-VoxImplantDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		4F81B3DD129B36B7546DF3D5 /* Pods-VoxImplantDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.release.xcconfig"; sourceTree = "<group>"; };
-		50568025B08EA211185549C7 /* Pods_VoxImplantDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoxImplantDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F58F42D5C4ED829027FEA2C /* Pods-VoxImplantDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		22AFFA2421EBF365AD766BB7 /* Pods-VoxImplantDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.release.xcconfig"; sourceTree = "<group>"; };
+		811104A97853D023C023F9C0 /* Pods_VoxImplantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoxImplantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1079D62F1E5C214400CB9819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		10C4305B1E3B546800D68082 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F282CD34A98579D1CDD54E0B /* Pods_VoxImplantDemo.framework in Frameworks */,
+				389EC194B49BA998AF2B6FFE /* Pods_VoxImplantDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1079D6331E5C214400CB9819 /* VoxImplantTests */ = {
+			isa = PBXGroup;
+			children = (
+				1079D63E1E5C284800CB9819 /* BaseTests.swift */,
+				1079D6341E5C214400CB9819 /* ConnectTests.swift */,
+				1079D63C1E5C27C200CB9819 /* LoginTests.swift */,
+				1079D6361E5C214400CB9819 /* Info.plist */,
+				1079D6401E5C407100CB9819 /* VoxImplantTests-BrigingHeader.h */,
+			);
+			path = VoxImplantTests;
+			sourceTree = "<group>";
+		};
 		10AC7B911E4882600061C073 /* VoxImplantController */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,9 +140,10 @@
 			children = (
 				1044847E1E5717EC0095225F /* Readme.md */,
 				10C430601E3B546800D68082 /* VoxImplantDemo */,
+				1079D6331E5C214400CB9819 /* VoxImplantTests */,
 				10C4305F1E3B546800D68082 /* Products */,
-				1BA5BCD77984E79CD58C621D /* Pods */,
-				4935D4B2AA7EDAFBBB3EE63B /* Frameworks */,
+				ECFFE0DE3FCD4EDEB7FCAABA /* Pods */,
+				49CD74E53257EBB5142CCFFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				10C4305E1E3B546800D68082 /* VoxImplantDemo.app */,
+				1079D6321E5C214400CB9819 /* VoxImplantTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,36 +174,55 @@
 			path = VoxImplantDemo;
 			sourceTree = "<group>";
 		};
-		1BA5BCD77984E79CD58C621D /* Pods */ = {
+		49CD74E53257EBB5142CCFFF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				19747336C47358ED74323381 /* Pods-VoxImplantDemo.debug.xcconfig */,
-				4F81B3DD129B36B7546DF3D5 /* Pods-VoxImplantDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		4935D4B2AA7EDAFBBB3EE63B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				50568025B08EA211185549C7 /* Pods_VoxImplantDemo.framework */,
+				0BE3C3F6BF90AE7D084DFA8B /* Pods_VoxImplantDemo.framework */,
+				811104A97853D023C023F9C0 /* Pods_VoxImplantTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECFFE0DE3FCD4EDEB7FCAABA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F58F42D5C4ED829027FEA2C /* Pods-VoxImplantDemo.debug.xcconfig */,
+				22AFFA2421EBF365AD766BB7 /* Pods-VoxImplantDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1079D6311E5C214400CB9819 /* VoxImplantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1079D63B1E5C214400CB9819 /* Build configuration list for PBXNativeTarget "VoxImplantTests" */;
+			buildPhases = (
+				1079D62E1E5C214400CB9819 /* Sources */,
+				1079D62F1E5C214400CB9819 /* Frameworks */,
+				1079D6301E5C214400CB9819 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1079D6381E5C214400CB9819 /* PBXTargetDependency */,
+			);
+			name = VoxImplantTests;
+			productName = VoxImplantTests;
+			productReference = 1079D6321E5C214400CB9819 /* VoxImplantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		10C4305D1E3B546800D68082 /* VoxImplantDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 10C4307B1E3B546800D68082 /* Build configuration list for PBXNativeTarget "VoxImplantDemo" */;
 			buildPhases = (
-				F808E8B7AB102A44DABDC02B /* [CP] Check Pods Manifest.lock */,
+				9219E76B41892C3D47FF6D21 /* [CP] Check Pods Manifest.lock */,
 				10C4305A1E3B546800D68082 /* Sources */,
 				10C4305B1E3B546800D68082 /* Frameworks */,
 				10C4305C1E3B546800D68082 /* Resources */,
-				DCF2859B8D1696D3C3F494A1 /* [CP] Embed Pods Frameworks */,
-				C555E3D350CC329E4EA61893 /* [CP] Copy Pods Resources */,
+				D8391FC7E3DD1F2B7ADBD71B /* [CP] Embed Pods Frameworks */,
+				D1EE6C0BAA0AE97C1FE724DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,6 +243,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Andrey Syvrachev";
 				TargetAttributes = {
+					1079D6311E5C214400CB9819 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 25S6X4YD96;
+						ProvisioningStyle = Automatic;
+					};
 					10C4305D1E3B546800D68082 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 25S6X4YD96;
@@ -213,11 +277,19 @@
 			projectRoot = "";
 			targets = (
 				10C4305D1E3B546800D68082 /* VoxImplantDemo */,
+				1079D6311E5C214400CB9819 /* VoxImplantTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1079D6301E5C214400CB9819 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		10C4305C1E3B546800D68082 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,37 +303,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		C555E3D350CC329E4EA61893 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCF2859B8D1696D3C3F494A1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F808E8B7AB102A44DABDC02B /* [CP] Check Pods Manifest.lock */ = {
+		9219E76B41892C3D47FF6D21 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,14 +318,53 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D1EE6C0BAA0AE97C1FE724DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8391FC7E3DD1F2B7ADBD71B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1079D62E1E5C214400CB9819 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1079D6351E5C214400CB9819 /* ConnectTests.swift in Sources */,
+				1079D63D1E5C27C200CB9819 /* LoginTests.swift in Sources */,
+				1079D63F1E5C284800CB9819 /* BaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		10C4305A1E3B546800D68082 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1044847F1E5717EC0095225F /* Readme.md in Sources */,
 				10AC7B9E1E4882600061C073 /* VoxImplantController+Push.swift in Sources */,
 				10AC7BBC1E48BDEC0061C073 /* Call.swift in Sources */,
 				10C430641E3B546800D68082 /* LoginViewController.swift in Sources */,
@@ -305,6 +386,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1079D6381E5C214400CB9819 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10C4305D1E3B546800D68082 /* VoxImplantDemo */;
+			targetProxy = 1079D6371E5C214400CB9819 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		10C430651E3B546800D68082 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -325,6 +414,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1079D6391E5C214400CB9819 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 25S6X4YD96;
+				INFOPLIST_FILE = VoxImplantTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voximplant.VoxImplantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VoxImplantTests/VoxImplantTests-BrigingHeader.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1079D63A1E5C214400CB9819 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 25S6X4YD96;
+				INFOPLIST_FILE = VoxImplantTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.voximplant.VoxImplantTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "VoxImplantTests/VoxImplantTests-BrigingHeader.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		10C430791E3B546800D68082 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -422,7 +537,7 @@
 		};
 		10C4307C1E3B546800D68082 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19747336C47358ED74323381 /* Pods-VoxImplantDemo.debug.xcconfig */;
+			baseConfigurationReference = 1F58F42D5C4ED829027FEA2C /* Pods-VoxImplantDemo.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -444,7 +559,7 @@
 		};
 		10C4307D1E3B546800D68082 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F81B3DD129B36B7546DF3D5 /* Pods-VoxImplantDemo.release.xcconfig */;
+			baseConfigurationReference = 22AFFA2421EBF365AD766BB7 /* Pods-VoxImplantDemo.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -467,6 +582,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1079D63B1E5C214400CB9819 /* Build configuration list for PBXNativeTarget "VoxImplantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1079D6391E5C214400CB9819 /* Debug */,
+				1079D63A1E5C214400CB9819 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		10C430591E3B546800D68082 /* Build configuration list for PBXProject "VoxImplantDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

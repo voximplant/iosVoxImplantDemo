@@ -15,7 +15,7 @@ class Connecting: State {
     }
     
     override func onConnectionFailedWithError(_ reason: String!) {
-        Notify.post(name: Notify.loginFailed, userInfo: ["reason":reason])
+        Notify.post(name: Notify.loginFailed, userInfo: reason != nil ? ["reason":reason] : nil)
         self.vic.goto(state: self.vic.sDisconnected)
     }
 }

@@ -15,15 +15,13 @@ class LoggingIn: State {
     }
     
     override func onLoginSuccessful(withDisplayName displayName: String!, andAuthParams authParams: [AnyHashable : Any]!) {
-        Log.debug("[\(self)] onLoginSuccessful(\(displayName!) authParams=\(authParams!))")
+        Log.debug("[\(self)] onLoginSuccessful(\(displayName) authParams=\(authParams))")
         Notify.post(name: Notify.loginSuccess, userInfo:  ["displayName":displayName, "authParams":authParams])
         self.vic.goto(state: self.vic.sLoggedIn)
     }
     
-    override func onLoginFailedWithErrorCode(_ errorCode: NSNumber!) {
-        Log.error("[\(self)] onLoginFailedWithErrorCode \(errorCode)")
-        Notify.post(name: Notify.loginFailed, userInfo:  ["reason":errorCode])
-        self.vic.sdk.closeConnection()
-        self.vic.goto(state: self.vic.sDisconnected)
-    }
+//    override func onLoginFailedWithErrorCode(_ errorCode: NSNumber!) {
+//        Log.error("[\(self)] onLoginFailedWithErrorCode \(errorCode)")
+//
+//    }
 }

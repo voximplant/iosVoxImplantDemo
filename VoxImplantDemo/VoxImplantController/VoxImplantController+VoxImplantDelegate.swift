@@ -8,6 +8,7 @@
 
 import Foundation
 import VoxImplant
+import CoreVideo
 
 extension VoxImplantController: VoxImplantDelegate {
     
@@ -100,4 +101,29 @@ extension VoxImplantController: VoxImplantDelegate {
             Log.error("CALL ABSEND: onCallFailed callId = \(callId)  code = \(code) reason=\(reason) headers = \(headers)")
         }
     }
+    
+    func onMessageReceived(inCall callId: String!, withText text: String!, withHeaders headers: [AnyHashable : Any]!) {
+        Log.info("onMessageReceived: \(callId!) withText=\(text) text=\(text) withHeaders=\(headers)")
+    }
+    
+    func onSIPInfoReceived(inCall callId: String!, withType type: String!, andContent content: String!, withHeaders headers: [AnyHashable : Any]!) {
+        Log.info("onSIPInfoReceived: \(callId!) withType=\(type) andContent=\(content) withHeaders=\(headers)")
+    }
+    
+    func onNetStatsReceived(inCall callId: String!, withStats stats: UnsafePointer<VoxImplantNetworkInfo>!) {
+        Log.info("onNetStatsReceived: \(callId!) packetLoss=\(stats!.pointee.packetLoss)")
+    }
+
+    // uncomment this to preprocess captured video before sending it to remote endpoint
+//    func onPreprocessCameraCapturedVideo(_ pixelBuffer: CVPixelBuffer!, rotation: Int32) {
+//        //Log.info("onPreprocessCameraCapturedVideo: rotation=\(rotation)")
+//        if (pixelBuffer == nil) {
+//            return
+//        }
+//        let size = CVPixelBufferGetDataSize(pixelBuffer)
+//        CVPixelBufferLockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+//        let baseAddr = CVPixelBufferGetBaseAddress(pixelBuffer)
+//        memset(baseAddr, 300, size/3)
+//        CVPixelBufferUnlockBaseAddress(pixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
+//    }
 }

@@ -25,7 +25,7 @@ extension VoxImplantController: CXProviderDelegate {
     /// Called when the provider has been reset. Delegates must respond to this callback by cleaning up all internal call state (disconnecting communication channels, releasing network resources, etc.). This callback can be treated as a request to end all calls without the need to respond to any actions
     @available(iOS 10.0, *)
     public func providerDidReset(_ provider: CXProvider) {
-        Log.debug("providerDidReset \(provider)")
+        Log.debug("CXCall providerDidReset \(provider)")
     }
     
     static var providerConfiguration: CXProviderConfiguration {
@@ -45,7 +45,7 @@ extension VoxImplantController: CXProviderDelegate {
         if Platform.isSimulator {
 
             // simulator
-            Log.info("incoming call on simulator")
+            Log.info("CXCall incoming call on simulator")
 
             Notify.post(name: Notify.incomingCall, userInfo: ["callId":callId,
                                                               "from":handle,
@@ -62,14 +62,15 @@ extension VoxImplantController: CXProviderDelegate {
             // Report the incoming call to the system
             provider.reportNewIncomingCall(with: uuid, update: update) { error in
                 if (error != nil) {
-                    Log.error("reportNewIncomingCall error = \(error)")
+                    Log.error("CXCall reportNewIncomingCall error = \(String(describing: error))")
                 }
             }
         }
     }
     
     func cancelIncomingCall(callDescriptor:IncomingCallDescriptor) {
-        
+        Log.info("CXCall cancelIncomingCall")
+
         if Platform.isSimulator {
             
             Notify.post(name: Notify.cancelIncomingCall, userInfo: ["callId":callDescriptor.callId])
@@ -81,10 +82,10 @@ extension VoxImplantController: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        
+        Log.info("CXCall CXAnswerCallAction")
+
         if let callDescr = incomingCalls[action.callUUID] {
-            incomingCalls.removeValue(forKey: action.callUUID)
-                        
+            
             // Workaround for webrtc, because first incoming call does not have audio due to incorrect category: AVAudioSessionCategorySoloAmbient
             // webrtc need AVAudioSessionCategoryPlayAndRecord
             do {
@@ -101,7 +102,13 @@ extension VoxImplantController: CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        
+        Log.info("CXCall CXEndCallAction")
+
+        
         if let callDescr = incomingCalls[action.callUUID] {
+            Log.info("CXCall reject")
+
             incomingCalls.removeValue(forKey: action.callUUID)
             Notify.post(name: Notify.rejectIncomingCall, userInfo: ["callId":callDescr.callId])
         }
@@ -109,4 +116,27 @@ extension VoxImplantController: CXProviderDelegate {
         
         action.fulfill()
     }
+    
+    func cleanIncomingCall(callId:String) {
+        Log.info("CXCall cleanIncomingCall")
+
+        for incomingCallDescriptor in self.incomingCalls.values {
+            if incomingCallDescriptor.callId == callId {
+                incomingCalls.removeValue(forKey: incomingCallDescriptor.uuid)
+                Log.info("CXCall removed closed incoming call descriptor")
+            }
+        }
+    }
+    
+    func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
+        Log.info("CXCall didActivate")
+
+    }
+
+    
+    func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
+        Log.info("CXCall didDeactivate")
+
+    }
+
 }

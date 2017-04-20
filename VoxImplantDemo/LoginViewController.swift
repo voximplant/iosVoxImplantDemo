@@ -14,18 +14,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var gateway: UITextField!
     
     
     private func loadUserDefaults(){
         let defaults = UserDefaults.standard
         userName.text = defaults.string(forKey: "user")
         password.text = defaults.string(forKey: "password")
+        gateway.text = defaults.string(forKey: "gateway")
     }
     
     private func saveUserDefaults(){
         let defaults = UserDefaults.standard
         defaults.setValue(userName.text, forKey: "user")
         defaults.setValue(password.text, forKey: "password")
+        defaults.setValue(gateway.text, forKey: "gateway")
     }
     
     override func viewDidLoad() {
@@ -59,8 +62,8 @@ class LoginViewController: UIViewController {
     func loginFailed(notification: Notification){
     //    Log.debug("loginFailed notification = '\(notification)'")
         
-        let reason = notification.userInfo!["reason"]
-        let alert = UIAlertController(title: "Error", message: "\(reason)", preferredStyle: .alert)
+        let reason = notification.userInfo?["reason"]
+        let alert = UIAlertController(title: "Error", message: reason != nil ? "\(String(describing: reason))":"", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .destructive, handler: nil))
         
         self.present(alert,animated: true, completion: nil)
@@ -77,7 +80,7 @@ class LoginViewController: UIViewController {
     func setUIDisconnected(){
         self.loginButton.isEnabled = true
         self.activityIndicator.stopAnimating()
-        self.loginButton.setTitle("Connect", for: .normal)
+        self.loginButton.setTitle("Login", for: .normal)
     }
     
     func setUIConnecting(){
@@ -92,7 +95,7 @@ class LoginViewController: UIViewController {
     func login(){
         self.saveUserDefaults()
         
-        vox.login(userName: userName.text!, password: password.text!)
+        vox.login(userName: userName.text!, password: password.text!, gateway: gateway.text)
         self.setUIConnecting()
     }
 
