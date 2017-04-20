@@ -9,3 +9,9 @@ target 'VoxImplantDemo' do
   pod 'VoxImplantSDK'
 
 end
+
+target 'VoxImplantTests' do
+    use_frameworks!
+    pod 'VoxImplantSDK'    
+    
+end

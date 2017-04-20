@@ -29,6 +29,7 @@
 		10C430691E3B546800D68082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C430681E3B546800D68082 /* Assets.xcassets */; };
 		10C4306C1E3B546800D68082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C4306A1E3B546800D68082 /* LaunchScreen.storyboard */; };
 		10D2C2931E56EB1B0011F880 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D2C2921E56EB1B0011F880 /* Log.swift */; };
+		1EC45B6EC5CD4E35610661D2 /* Pods_VoxImplantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811104A97853D023C023F9C0 /* Pods_VoxImplantTests.framework */; };
 		389EC194B49BA998AF2B6FFE /* Pods_VoxImplantDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BE3C3F6BF90AE7D084DFA8B /* Pods_VoxImplantDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		10D2C2921E56EB1B0011F880 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		1F58F42D5C4ED829027FEA2C /* Pods-VoxImplantDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		22AFFA2421EBF365AD766BB7 /* Pods-VoxImplantDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantDemo/Pods-VoxImplantDemo.release.xcconfig"; sourceTree = "<group>"; };
+		255ED6F5842560D6DF2BA249 /* Pods-VoxImplantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantTests/Pods-VoxImplantTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6BD0BBEE04A34C2924C42EE4 /* Pods-VoxImplantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoxImplantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VoxImplantTests/Pods-VoxImplantTests.release.xcconfig"; sourceTree = "<group>"; };
 		811104A97853D023C023F9C0 /* Pods_VoxImplantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VoxImplantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EC45B6EC5CD4E35610661D2 /* Pods_VoxImplantTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +192,8 @@
 			children = (
 				1F58F42D5C4ED829027FEA2C /* Pods-VoxImplantDemo.debug.xcconfig */,
 				22AFFA2421EBF365AD766BB7 /* Pods-VoxImplantDemo.release.xcconfig */,
+				255ED6F5842560D6DF2BA249 /* Pods-VoxImplantTests.debug.xcconfig */,
+				6BD0BBEE04A34C2924C42EE4 /* Pods-VoxImplantTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -199,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1079D63B1E5C214400CB9819 /* Build configuration list for PBXNativeTarget "VoxImplantTests" */;
 			buildPhases = (
+				BB7AC82B4E2E22404215197E /* [CP] Check Pods Manifest.lock */,
 				1079D62E1E5C214400CB9819 /* Sources */,
 				1079D62F1E5C214400CB9819 /* Frameworks */,
 				1079D6301E5C214400CB9819 /* Resources */,
+				8728B23FAB573AD4E809B71F /* [CP] Embed Pods Frameworks */,
+				4254C39E0BB6B0974BC9C93A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,7 +312,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4254C39E0BB6B0974BC9C93A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantTests/Pods-VoxImplantTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8728B23FAB573AD4E809B71F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VoxImplantTests/Pods-VoxImplantTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9219E76B41892C3D47FF6D21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB7AC82B4E2E22404215197E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -416,6 +470,7 @@
 /* Begin XCBuildConfiguration section */
 		1079D6391E5C214400CB9819 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 255ED6F5842560D6DF2BA249 /* Pods-VoxImplantTests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 25S6X4YD96;
 				INFOPLIST_FILE = VoxImplantTests/Info.plist;
@@ -429,6 +484,7 @@
 		};
 		1079D63A1E5C214400CB9819 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6BD0BBEE04A34C2924C42EE4 /* Pods-VoxImplantTests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 25S6X4YD96;
 				INFOPLIST_FILE = VoxImplantTests/Info.plist;
