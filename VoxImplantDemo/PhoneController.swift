@@ -14,6 +14,19 @@ class PhoneController: UIViewController {
     @IBOutlet weak var destUser: UITextField!
     @IBOutlet weak var videoCallButton: UIButton!
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(disconnected), name: Notify.disconnected, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(incomingCall(notification:)), name: Notify.incomingCall, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(cancelIncomingCall(notification:)), name: Notify.cancelIncomingCall, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(acceptIncomingCall(notification:)), name: Notify.acceptIncomingCall, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(rejectIncomingCall(notification:)), name: Notify.rejectIncomingCall, object: nil)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,13 +34,7 @@ class PhoneController: UIViewController {
             self.videoCallButton.isHidden = true
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(disconnected), name: Notify.disconnected, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(incomingCall(notification:)), name: Notify.incomingCall, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(cancelIncomingCall(notification:)), name: Notify.cancelIncomingCall, object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(acceptIncomingCall(notification:)), name: Notify.acceptIncomingCall, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(rejectIncomingCall(notification:)), name: Notify.rejectIncomingCall, object: nil)
 
         loadUserDefaults()
     }
