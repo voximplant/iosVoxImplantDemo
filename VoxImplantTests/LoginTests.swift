@@ -155,7 +155,7 @@ class LoginTests: BaseTests {
         
         self.exRefreshToken = self.expectation(description: "refreshToken")
         self.expectedErrorCode = 701
-        self.sdk?.refreshToken(withUsername: cUser, andToken: "\(refreshToken)incorrect")
+        self.sdk?.refreshToken(withUsername: cUser, andToken: "\(String(describing: refreshToken))incorrect")
         self.waitForExpectations(timeout: cExpectationsWaitTimeout, handler: nil)
     }
     
