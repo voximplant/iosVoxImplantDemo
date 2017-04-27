@@ -106,7 +106,7 @@ class CallController: UIViewController, CallDelegate {
         Log.debug("callDidDisconnect")
         if (!alreadyPoppedUp) {
             alreadyPoppedUp = true
-            self.navigationController!.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
